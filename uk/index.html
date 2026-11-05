@@ -1,8 +1,17 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Головна · Віталій Швець</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Головна · Віталій Швець</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&subset=cyrillic&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../style.css">
     <link rel="alternate" hreflang="en" href="../index.html">
+
     <script>
         (function(){
             try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
@@ -38,11 +47,15 @@
                         es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
                     },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
                     document.querySelectorAll('.card,.job,h2,.note,.phases .phase').forEach(function(el){el.classList.add('reveal');io.observe(el)});
+                }else{
+                    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')});
                 }
             });
         })();
     </script>
-</head><body>
+</head>
+<body>
+
 <header>
     <div id="scroll-progress" aria-hidden="true"></div>
     <nav aria-label="Головна">
@@ -64,10 +77,15 @@
         </div>
     </nav>
 </header>
+
 <main>
     <h1>Від сонячних електростанцій до програмного забезпечення.</h1>
     <p class="lead">Шість років практичної інженерії, керування командами та роботи з клієнтами. Обставини в Україні забрали мене з дахів у віддалену роботу, і я використав цей поворот, щоб перекваліфікуватися на Java backend-розробника.</p>
-    <div class="btns"><a class="btn" href="resume.html">Переглянути резюме</a><a class="btn ghost" href="roadmap.html">Моя дорожня карта</a></div>
+    <div class="btns">
+        <a class="btn" href="resume.html">Переглянути резюме</a>
+        <a class="btn ghost" href="roadmap.html">Моя дорожня карта</a>
+    </div>
+
     <h2>Що я приношу в команду розробки</h2>
     <div class="grid">
         <div class="card"><h3>Повний цикл «під ключ»</h3><p>Виїжджав на об’єкти, проєктував, робив комерційні пропозиції, монтував, налаштовував і здавав реальні сонячні системи. Знаю проєкт від першого дзвінка до фінального підпису.</p></div>
@@ -77,8 +95,10 @@
         <div class="card"><h3>Пошук несправностей без здавання</h3><p>Віддалена діагностика живих систем на рівнях L1/L2. Скоротив час вирішення інцидентів на 30% завдяки інструкціям для клієнтів і співробітників.</p></div>
         <div class="card"><h3>Погляд на компанію загалом</h3><p>Працював на об’єктах, в офісі, з постачальниками та клієнтами, тому розумію, що бізнесу потрібно від програмного забезпечення.</p></div>
     </div>
+
     <p class="note">Зараз: вивчаю Java та ООП, створюю портфоліо на GitHub, шукаю віддалені позиції Technical Support, Application Support або Junior Java.</p>
 </main>
+
 <footer>
     <div class="msg-grid" aria-label="Контакти">
         <a class="msg-card" href="https://t.me/vetaldmc" rel="noopener">
@@ -92,4 +112,6 @@
     </div>
     <p style="margin-top:1.5rem">© 2026 Віталій Швець · Україна</p>
 </footer>
-</body></html>
+
+</body>
+</html>
