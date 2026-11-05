@@ -1,4 +1,45 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Резюме · Віталій Швець</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&subset=cyrillic&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><link rel="alternate" hreflang="en" href="../resume.html"></head><body><header><nav><a class="logo" href="index.html">Віталій Швець</a><a href="index.html">Головна</a><a href="resume.html" aria-current="page">Резюме</a><a href="roadmap.html">Дорожня карта</a><a href="projects.html">Проєкти</a><a href="game.html">Грати</a><a class="lang" href="../resume.html" hreflang="en" lang="en">English</a></nav></header><main>
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Резюме · Віталій Швець</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&subset=cyrillic&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><link rel="alternate" hreflang="en" href="../resume.html">
+    <script>
+        (function(){
+            try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+            document.addEventListener('DOMContentLoaded',function(){
+                var tgl=document.querySelector('.theme-toggle');
+                if(tgl)tgl.addEventListener('click',function(){
+                    var cur=document.documentElement.dataset.theme
+                        || (matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+                    var next=cur==='dark'?'light':'dark';
+                    document.documentElement.dataset.theme=next;
+                    try{localStorage.setItem('theme',next)}catch(e){}
+                });
+                var nav=document.querySelector('nav'),btn=document.querySelector('.nav-toggle');
+                if(btn)btn.addEventListener('click',function(){
+                    var open=nav.dataset.open==='true';
+                    nav.dataset.open=String(!open);
+                    btn.setAttribute('aria-expanded',String(!open));
+                });
+                var bar=document.getElementById('scroll-progress');
+                if(bar){
+                    var raf=0;
+                    var upd=function(){
+                        var h=document.documentElement;
+                        var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+                        bar.style.width=(p*100)+'%';
+                        raf=0;
+                    };
+                    addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
+                    upd();
+                }
+                if('IntersectionObserver' in window){
+                    var io=new IntersectionObserver(function(es){
+                        es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+                    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+                    document.querySelectorAll('.card,.job,h2,.note,.phases .phase').forEach(function(el){el.classList.add('reveal');io.observe(el)});
+                }
+            });
+        })();
+    </script>
+
+</head><body><header><nav><a class="logo" href="index.html">Віталій Швець</a><a href="index.html">Головна</a><a href="resume.html" aria-current="page">Резюме</a><a href="roadmap.html">Дорожня карта</a><a href="projects.html">Проєкти</a><a href="game.html">Грати</a><a class="lang" href="../resume.html" hreflang="en" lang="en">English</a></nav></header><main>
 <h1>Резюме</h1>
 <p class="lead">Одна колонка та звичайний текст, тому системи відбору резюме (ATS) читають його правильно.</p>
 <div class="btns"><a class="btn" href="resume.pdf" download>Завантажити PDF</a><a class="btn ghost" href="resume-doc.html" target="_blank" rel="noopener">Відкрити на весь екран</a><a class="btn ghost" href="../resume.pdf" download hreflang="en" lang="en">Download English PDF</a></div>

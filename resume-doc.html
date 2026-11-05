@@ -5,7 +5,47 @@ h1{font-size:21pt;margin:0}.t{font-size:11.5pt;color:#2b4a8a;font-weight:700;mar
 h2{font-size:10.5pt;border-bottom:1.2px solid #2b4a8a;color:#2b4a8a;margin:13px 0 6px;padding-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
 h3{font-size:10pt;margin:8px 0 0;display:flex;justify-content:space-between;gap:1rem}h3 span{font-weight:400;white-space:nowrap}
 .co{color:#444;font-style:italic}ul{margin:2px 0 0 16px;padding:0}li{margin:1px 0}p{margin:3px 0}
-</style></head><body>
+</style>
+    <script>
+        (function(){
+            try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+            document.addEventListener('DOMContentLoaded',function(){
+                var tgl=document.querySelector('.theme-toggle');
+                if(tgl)tgl.addEventListener('click',function(){
+                    var cur=document.documentElement.dataset.theme
+                        || (matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+                    var next=cur==='dark'?'light':'dark';
+                    document.documentElement.dataset.theme=next;
+                    try{localStorage.setItem('theme',next)}catch(e){}
+                });
+                var nav=document.querySelector('nav'),btn=document.querySelector('.nav-toggle');
+                if(btn)btn.addEventListener('click',function(){
+                    var open=nav.dataset.open==='true';
+                    nav.dataset.open=String(!open);
+                    btn.setAttribute('aria-expanded',String(!open));
+                });
+                var bar=document.getElementById('scroll-progress');
+                if(bar){
+                    var raf=0;
+                    var upd=function(){
+                        var h=document.documentElement;
+                        var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+                        bar.style.width=(p*100)+'%';
+                        raf=0;
+                    };
+                    addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
+                    upd();
+                }
+                if('IntersectionObserver' in window){
+                    var io=new IntersectionObserver(function(es){
+                        es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+                    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+                    document.querySelectorAll('.card,.job,h2,.note,.phases .phase').forEach(function(el){el.classList.add('reveal');io.observe(el)});
+                }
+            });
+        })();
+    </script>
+</head><body>
 <h1>Vitalii Shvets</h1><div class="t">Technical Support Engineer · Aspiring Java Developer</div>
 <div class="c">Ukraine (open to remote) · vetaldmc@gmail.com · Telegram: @vetalDmc · github.com/dbnfkmzyj-hash</div>
 <h2>Summary</h2>
