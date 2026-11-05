@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Play · Vitalii Shvets</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><header><nav><a class="logo" href="index.html">Vitalii Shvets</a><a href="index.html">Home</a><a href="resume.html">Resume</a><a href="roadmap.html">Roadmap</a><a href="projects.html">Projects</a><a href="game.html" aria-current="page">Play</a></nav></header><main><h1>Play my game</h1>
+<p class="lead">The game runs right in your browser through CheerpJ, a Java runtime built on WebAssembly. First load takes a few seconds.</p>
+<div id="stage"><span id="msg">Loading Java runtime…</span></div>
+<script src="https://cjrtnc.leaningtech.com/3.0/loader.js"></script>
+<script>
+(async () => {
+  const stage = document.getElementById("stage"), msg = document.getElementById("msg");
+  try {
+    await cheerpjInit();
+    msg.remove();
+    cheerpjCreateDisplay(800, 600, stage);
+    await cheerpjRunJar("/app/game/game.jar");   // put your file at game/game.jar
+  } catch (e) {
+    stage.textContent = "Could not start the game: " + e.message;
+  }
+})();
+</script>
+</main><footer>© 2026 Vitalii Shvets · Ukraine · <a href="mailto:vetaldmc@gmail.com">vetaldmc@gmail.com</a> · <a href="https://t.me/vetaldmc">Telegram</a></footer></body></html>
