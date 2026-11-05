@@ -1,0 +1,19 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Грати · Віталій Швець</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&subset=cyrillic&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><link rel="alternate" hreflang="en" href="../game.html"></head><body><header><nav><a class="logo" href="index.html">Віталій Швець</a><a href="index.html">Головна</a><a href="resume.html">Резюме</a><a href="roadmap.html">Дорожня карта</a><a href="projects.html">Проєкти</a><a href="game.html" aria-current="page">Грати</a><a class="lang" href="../game.html" hreflang="en" lang="en">English</a></nav></header><main>
+<h1>Грайте в мою гру</h1>
+<p class="lead">Гра працює прямо у вашому браузері завдяки CheerpJ, середовищу Java на WebAssembly. Перше завантаження займає кілька секунд.</p>
+<div id="stage"><span id="msg">Завантаження середовища Java…</span></div>
+<script src="https://cjrtnc.leaningtech.com/3.0/loader.js"></script>
+<script>
+(async () => {
+  const stage = document.getElementById("stage"), msg = document.getElementById("msg");
+  try {
+    await cheerpjInit();
+    msg.remove();
+    cheerpjCreateDisplay(800, 600, stage);
+    await cheerpjRunJar("/app/game/game.jar");   // той самий файл game/game.jar, що й в англійській версії
+  } catch (e) {
+    stage.textContent = "Не вдалося запустити гру: " + e.message;
+  }
+})();
+</script>
+</main><footer>© 2026 Віталій Швець · Україна · <a href="mailto:vetaldmc@gmail.com">vetaldmc@gmail.com</a> · <a href="https://t.me/vetaldmc">Telegram</a></footer></body></html>
